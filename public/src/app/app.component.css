@@ -1,0 +1,17 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    /* outline: solid 1px pink; */
+    font-family: sans-serif;
+}
+.root{
+    margin: 0px auto;
+    width: 1200px;
+    text-align: center;
+    padding-top: 10px;
+}
+#tasks{
+    margin-left: 370px;
+    width: 300px;
+text-align: left;
+}

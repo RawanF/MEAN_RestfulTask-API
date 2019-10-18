@@ -3,7 +3,7 @@ const Task = mongoose.model('Task');
 module.exports = {
     GetAllTasks: function (req, res) {//Retrieve all Tasks
         Task.find()
-            .then(data => res.json(data))
+            .then(data =>{console.log("data in server",data),res.json(data)})
             .catch(err => res.json(err));
     },
     GetTaskById: function (req, res) {//Retrieve a Task by ID

@@ -1,13 +1,20 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <div class="root">
-  <h1>Hello Angular! weclome {{name}}</h1>
-</div>
-
-
-<!-- <router-outlet></router-outlet> -->
+  <h1>weclome {{name}} </h1>
+  <br><br>
+  <h3>All Tasks from the database</h3>
+  <br>
+  <div id="tasks" *ngFor="let i of tasks | keyvalue">
+    <b>Title: </b> {{i.value['title']}} <br>
+    <b>Description: </b> {{i.value['description']}} <br>
+    <b>Completed? </b> <span *ngIf="i.value['completed']; else NotCompleted">Yes</span>
+    <ng-template #NotCompleted>
+     <span>No</span> 
+    </ng-template>
+    <br><br>
+  </div>
+    <!-- <div *ngFor="let item of i.value | keyvalue">
+      Key: <b>{{item.key}}</b> -- Value: <b>{{item.value}}</b>
+  </div>
+  </div>
+  <input type="text" [value]="name" />
+</div> -->

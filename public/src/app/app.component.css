@@ -10,7 +10,7 @@
     text-align: center;
     padding-top: 10px;
 }
-#tasks{
+#tasks,#task{
     margin-left: 370px;
     width: 300px;
 text-align: left;

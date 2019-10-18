@@ -1,17 +1,28 @@
 <div class="root">
   <h1>weclome {{name}} </h1>
   <br><br>
-  <h3>All Tasks from the database</h3>
-  <br>
+  <h3>Restful Task API</h3>
+  <br><br>
+
+  <button (click)="GetAllTasks()">Get All Tasks</button>
+  <br><br>
   <div id="tasks" *ngFor="let i of tasks | keyvalue">
-    <b>Title: </b> {{i.value['title']}} <br>
-    <b>Description: </b> {{i.value['description']}} <br>
-    <b>Completed? </b> <span *ngIf="i.value['completed']; else NotCompleted">Yes</span>
+    <b>Title: </b> {{i.value['title']}}    
+    <button (click)="GetTaskByID(i.value['_id'])">Show task details</button><br> 
+    <br>
+  </div>
+  
+  <div id="task" *ngFor="let T of task | keyvalue">
+    <b>Title: </b> {{T.value['title']}}  <br> 
+    <b>Description: </b> {{T.value['description']}}  <br>
+    <b>Created At: </b> {{T.value['createdAt']}}  <br>
+    <b>Updated At: </b> {{T.value['updatedAt']}}  <br>
+    <b>Completed? </b> {{T.value['completed']}}
+     <span *ngIf="T.value['completed']; else NotCompleted">Yes</span>
     <ng-template #NotCompleted>
      <span>No</span> 
     </ng-template>
-    <br><br>
-  </div>
+</div>
     <!-- <div *ngFor="let item of i.value | keyvalue">
       Key: <b>{{item.key}}</b> -- Value: <b>{{item.value}}</b>
   </div>

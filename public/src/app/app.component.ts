@@ -4,7 +4,7 @@ import { HttpService } from './http.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
   name: string = 'Rawan';
@@ -27,13 +27,13 @@ export class AppComponent implements OnInit {
       console.log(this.tasks)
     });
   }
-  GetTaskByID(id: string) {
-    let observable = this._httpService.getTaskId(id);
+  GetTaskByID(task) {
+    console.log(task);
+    let observable = this._httpService.getTaskId(task._id);
     observable.subscribe(data => {//when the data is ready run this
       console.log("Got one task!", data)
-      this.task = data;
+      this.task = data[0];
       console.log(this.task)
-
     });
   }
   onSubmit() {

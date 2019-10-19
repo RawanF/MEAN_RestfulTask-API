@@ -18,23 +18,12 @@
   <br><br>
   <div id="tasks" *ngFor="let i of tasks | keyvalue">
     <b>Title: </b> {{i.value['title']}}    
-    <button (click)="GetTaskByID(i.value['_id'])">Show task details</button><br> 
+    <button (click)="GetTaskByID(i.value)">Show task details</button><br> 
     <button (click)="toggleDisplay(i.value)">Edit task </button><br> 
     <button (click)="DeleteTask(i.value['_id'])">Delete task </button><br> 
     <br>
   </div>
-  
-  <div id="task" *ngFor="let T of task | keyvalue">
-    <b>Title: </b> {{T.value['title']}}  <br> 
-    <b>Description: </b> {{T.value['description']}}  <br>
-    <b>Created At: </b> {{T.value['createdAt']}}  <br>
-    <b>Updated At: </b> {{T.value['updatedAt']}}  <br>
-    <b>Completed? </b> {{T.value['completed']}}
-     <span *ngIf="T.value['completed']; else NotCompleted">Yes</span>
-    <ng-template #NotCompleted>
-     <span>No</span> 
-    </ng-template>
-</div>
+  <app-task *ngIf='task' [GetTaskByID]='task'>  </app-task> 
 <div [hidden] = "isShow">
     <form (submit)="EditTask(editTask)" >
         <p> {{ editTask | json }} </p>
@@ -46,9 +35,3 @@
     </form>
 </div>
   </div>
-    <!-- <div *ngFor="let item of i.value | keyvalue">
-      Key: <b>{{item.key}}</b> -- Value: <b>{{item.value}}</b>
-  </div>
-  </div>
-  <input type="text" [value]="name" />
-</div> -->
